@@ -137,28 +137,28 @@ symptoms_list = [
         "loss_of_smell"
     ]
 
-def generate_df(symptoms):
-    pred_data = {}
-    for symptom_candidate in symptoms_list:
-        pred_data[symptom_candidate] = 1 if symptom_candidate in symptoms else 0
+# def generate_df(symptoms):
+#     pred_data = {}
+#     for symptom_candidate in symptoms_list:
+#         pred_data[symptom_candidate] = 1 if symptom_candidate in symptoms else 0
 
-    df = pd.DataFrame(pred_data, index=[""])
-    return df
+#     df = pd.DataFrame(pred_data, index=[""])
+#     return df
 
 app = Flask(__name__)
 CORS(app, supports_credentials=True)
 model = pickle.load(open("model.pkl", "rb"))
 
-@app.route("/api/prediction", methods=["POST", "GET"])
-@cross_origin(supports_credentials=True)
-def predict():
-    data = request.get_json(force=True)
-    x_pred = generate_df(data["symptoms"])
-    prediction = model.predict(x_pred)
-    output = prediction[0]
-    return jsonify({
-            "data": output
-        })
+# @app.route("/api/prediction", methods=["POST", "GET"])
+# @cross_origin(supports_credentials=True)
+# def predict():
+#     data = request.get_json(force=True)
+#     x_pred = generate_df(data["symptoms"])
+#     prediction = model.predict(x_pred)
+#     output = prediction[0]
+#     return jsonify({
+#             "data": output
+#         })
 
 
 @app.route("/", methods=["GET"])
