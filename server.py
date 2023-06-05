@@ -5,7 +5,7 @@ import pickle
 
 app = Flask(__name__)
 CORS(app, supports_credentials=True)
-# model = pickle.load(open("model.pkl", "rb"))
+model = pickle.load(open("model.pkl", "rb"))
 
 # @app.route("/api/prediction", methods=["POST", "GET"])
 # @cross_origin(supports_credentials=True)
