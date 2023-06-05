@@ -1,6 +1,6 @@
 from flask import Flask, request, jsonify, make_response
 from flask_cors import CORS, cross_origin
-import pickle
+# import pickle
 # import pandas as pd
 
 symptoms_list = [
@@ -147,7 +147,7 @@ symptoms_list = [
 
 app = Flask(__name__)
 CORS(app, supports_credentials=True)
-model = pickle.load(open("model.pkl", "rb"))
+# model = pickle.load(open("model.pkl", "rb"))
 
 # @app.route("/api/prediction", methods=["POST", "GET"])
 # @cross_origin(supports_credentials=True)
@@ -164,10 +164,6 @@ model = pickle.load(open("model.pkl", "rb"))
 @app.route("/", methods=["GET"])
 def index():
     return "Machine Learning Inference"
-
-
-def custom_error(message, status_code):
-    return make_response(jsonify(message), status_code)
 
 
 if __name__ == "__main__":
