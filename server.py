@@ -1,6 +1,6 @@
 from flask import Flask, request, jsonify, make_response
 from flask_cors import CORS, cross_origin
-# import pickle
+import pickle
 # import pandas as pd
 
 symptoms_list = [
