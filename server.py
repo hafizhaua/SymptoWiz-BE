@@ -1,4 +1,4 @@
-# from disease import get_disease_info, generate_df
+from disease import get_disease_info, generate_df
 from flask import Flask, request, jsonify, make_response
 from flask_cors import CORS, cross_origin
 import pickle
